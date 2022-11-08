@@ -40,6 +40,7 @@ function EditCompanyModal(props) {
 
   return (
     <>
+    
       <Modal show={showUpdate} onHide={closeUpdate}>
         <Modal.Header closeButton>
           <Modal.Title></Modal.Title>

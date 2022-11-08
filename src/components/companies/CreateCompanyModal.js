@@ -27,18 +27,17 @@ function CreateCompanyModal(props) {
   const handleCreateCompany = (e) => {
     e.preventDefault()
     companyCreate(company, user)
-      .then(() => {        
-        handleClose()
-        setCompany(defaultCompany)
-        triggerRefresh()
-      })
-      .catch((error) => {
-          msgAlert({
-            heading: 'Failure',
-            message: 'Create Company Failure' + error,
-            variant: 'danger'
-          })
-      })
+    .then(() => {
+      triggerRefresh()
+      handleClose()
+    })
+    .catch((error) => {
+        msgAlert({
+          heading: 'Failure',
+          message: 'Create Company Failure' + error,
+          variant: 'danger'
+        })
+    })
   }
 
 
@@ -48,7 +47,7 @@ function CreateCompanyModal(props) {
         Create Company!
       </button>
 
-      <Modal className="mt-5" show={show} onHide={handleClose}>
+      <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title></Modal.Title>
         </Modal.Header>
@@ -60,6 +59,8 @@ function CreateCompanyModal(props) {
             handleSubmit={ handleCreateCompany }
           />
         </Modal.Body>
+        <Modal.Footer>
+        </Modal.Footer>
       </Modal>
     </>
   );
